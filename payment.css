@@ -1,0 +1,231 @@
+body {
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.payment-overlay {
+    width: 100%;
+    max-width: 700px;
+}
+
+.payment-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: slideUp 0.4s ease;
+}
+
+.payment-left {
+    padding: 30px;
+    background: white;
+}
+
+.payment-left .payment-item {
+    font-size: 16px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.payment-left .payment-item span {
+    float: right;
+    font-weight: 600;
+}
+
+.payment-total {
+    font-size: 22px;
+    font-weight: 900;
+    padding-top: 16px;
+    margin-top: 8px;
+    border-top: 2px solid black;
+}
+
+.payment-total span {
+    float: right;
+}
+
+.payment-right {
+    padding: 30px;
+    background: black;
+    color: white;
+}
+
+.payment-methods {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.payment-methods span {
+    background: rgba(255,255,255,0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.payment-methods span:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.payment-email {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.05);
+    padding: 10px 14px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.edit-icon {
+    margin-left: auto;
+    opacity: 0.5;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.payment-blank {
+    background: white;
+    border-radius: 12px;
+    padding: 0 14px;
+    margin-bottom: 12px;
+    transition: background 0.3s;
+}
+
+.payment-blank input {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: transparent;
+}
+
+.payment-agree {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    opacity: 0.7;
+    margin: 12px 0;
+}
+
+.btn-pay {
+    width: 100%;
+    padding: 14px;
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-pay:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.btn-pay:hover:not(:disabled) {
+    transform: scale(1.02);
+}
+
+/* ===== ПАНЕЛЬ УСПЕШНО ===== */
+.success-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.success-panel {
+    background: white;
+    border-radius: 24px;
+    padding: 40px 30px;
+    text-align: center;
+    max-width: 400px;
+    animation: slideUp 0.5s ease;
+}
+
+.success-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background: rgba(0,200,100,0.15);
+    border-radius: 50%;
+    margin-bottom: 16px;
+}
+
+.success-panel h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.success-panel p {
+    font-size: 16px;
+    opacity: 0.6;
+    margin-bottom: 24px;
+}
+
+.success-footer {
+    display: inline-block;
+    background: black;
+    color: white;
+    padding: 12px 40px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.success-footer:hover {
+    transform: scale(1.05);
+}
+
+body.dark-theme .success-panel {
+    background: #1a1a1a;
+    color: #eee;
+}
+
+@media (max-width: 600px) {
+    .payment-panel {
+        grid-template-columns: 1fr;
+        border-radius: 16px;
+    }
+    .payment-right {
+        padding: 20px;
+    }
+    .payment-left {
+        padding: 20px;
+    }
+}

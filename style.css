@@ -1,0 +1,998 @@
+/* =========================================================
+   1. ШРИФТЫ
+   ========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* =========================================================
+   2. БАЗОВЫЕ СТИЛИ
+   ========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #ffffff;
+    color: #000000;
+    transition: background 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================================
+   3. ЗАГОЛОВКИ
+   ========================================================= */
+h1, h2, h3, h4, h5, h6,
+.hero h1,
+.features h2,
+.about h2,
+.faq h2,
+.support h2,
+.tariffs-page h1,
+.constructor-section h2,
+.tariff-card h2,
+.logo .pltrs,
+.phone-number,
+.cube-title,
+.section-header #sectionTitle,
+.success-panel h2,
+.login-box h2,
+.tariff-price {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+/* =========================================================
+   4. КНОПКИ
+   ========================================================= */
+.btn-primary {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 30px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 10px 24px;
+    background: transparent;
+    color: #000000;
+    border: 2px solid #000000;
+    border-radius: 30px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: #000000;
+    color: #ffffff;
+}
+
+/* =========================================================
+   5. ЛОГОТИП
+   ========================================================= */
+.logo {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.logo .pltrs {
+    font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.logo .by {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    opacity: 0.5;
+    letter-spacing: 0.5px;
+}
+
+.logo.small .pltrs {
+    font-size: 20px;
+}
+
+/* =========================================================
+   6. АНИМАЦИИ
+   ========================================================= */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   ХЕДЕР — ИДЕАЛЬНОЕ ВЫРАВНИВАНИЕ
+   ============================================================ */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 40px;
+    border-bottom: 1px solid #e5e5e5;
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Левая часть — логотип */
+header .logo {
+    flex-shrink: 0;
+    width: 120px;
+}
+
+/* Центральная часть — навигация (строго по центру) */
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex: 1;
+    justify-content: center;
+}
+
+/* Правая часть — тумблер + бургер */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    width: 120px;
+    justify-content: flex-end;
+}
+
+/* Ссылки в навигации */
+header nav a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #000000;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+}
+
+header nav a:hover,
+header nav a.active {
+    color: #555555;
+    border-bottom-color: #000000;
+}
+
+/* Тумблер темы */
+.theme-toggle {
+    background: none;
+    border: 2px solid #d0d0d0;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 18px;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    border-color: #888;
+}
+
+/* Бургер-меню */
+.burger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    align-items: center;
+    justify-content: center;
+}
+
+.burger svg {
+    width: 28px;
+    height: 28px;
+    stroke: #000000;
+    stroke-width: 1.5;
+}
+
+/* ============================================================
+   ТЁМНАЯ ТЕМА ДЛЯ ХЕДЕРА
+   ============================================================ */
+body.dark-theme header {
+    background: #111111;
+    border-bottom-color: #2a2a2a;
+}
+
+body.dark-theme header nav a {
+    color: #cccccc;
+}
+
+body.dark-theme header nav a:hover,
+body.dark-theme header nav a.active {
+    color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
+body.dark-theme .burger svg {
+    stroke: #ffffff;
+}
+
+body.dark-theme .theme-toggle {
+    border-color: #444444;
+}
+
+/* =========================================================
+   8. ИКОНКИ
+   ========================================================= */
+.icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    stroke: currentColor;
+    fill: none;
+}
+
+.icon-sm { width: 16px; height: 16px; }
+.icon-md { width: 24px; height: 24px; }
+.icon-lg { width: 40px; height: 40px; }
+.icon-xl { width: 64px; height: 64px; }
+
+/* =========================================================
+   9. ТЁМНАЯ ТЕМА (ПОЛНОСТЬЮ РАБОЧАЯ)
+   ========================================================= */
+body.dark-theme {
+    background: #0a0a0a !important;
+    color: #f0f0f0 !important;
+}
+
+/* Хедер */
+body.dark-theme header {
+    background: #111111 !important;
+    border-bottom-color: #2a2a2a !important;
+}
+
+body.dark-theme header nav a {
+    color: #cccccc !important;
+}
+
+body.dark-theme header nav a:hover,
+body.dark-theme header nav a.active {
+    color: #ffffff !important;
+    border-bottom-color: #ffffff !important;
+}
+
+body.dark-theme .btn-login {
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+}
+
+body.dark-theme .btn-login:hover {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+body.dark-theme .theme-toggle {
+    border-color: #444444 !important;
+}
+
+body.dark-theme .avatar-link {
+    color: #ffffff !important;
+}
+
+body.dark-theme .avatar-link:hover {
+    background: #2a2a2a !important;
+}
+
+/* Кнопки */
+body.dark-theme .btn-primary {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+}
+
+body.dark-theme .btn-primary:hover {
+    background: transparent !important;
+    color: #ffffff !important;
+}
+
+body.dark-theme .btn-secondary {
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+body.dark-theme .btn-secondary:hover {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* Hero */
+body.dark-theme .hero {
+    background: #0a0a0a !important;
+}
+
+body.dark-theme .hero .subtitle,
+body.dark-theme .hero .desc {
+    color: #cccccc !important;
+}
+
+/* Features */
+body.dark-theme .features {
+    background: #111111 !important;
+}
+
+body.dark-theme .feature-card {
+    background: #1a1a1a !important;
+    border-color: #333333 !important;
+    color: #eeeeee !important;
+}
+
+body.dark-theme .feature-card p {
+    color: #aaaaaa !important;
+}
+
+body.dark-theme .feature-card .icon svg {
+    stroke: #ffffff !important;
+}
+
+body.dark-theme .op {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* About */
+body.dark-theme .about {
+    background: #0a0a0a !important;
+}
+
+body.dark-theme .about p {
+    color: #cccccc !important;
+}
+
+/* FAQ */
+body.dark-theme .faq {
+    background: #111111 !important;
+}
+
+body.dark-theme .faq-item {
+    border-bottom-color: #333333 !important;
+}
+
+body.dark-theme .faq-question {
+    color: #ffffff !important;
+}
+
+body.dark-theme .faq-answer {
+    color: #aaaaaa !important;
+}
+
+/* Support */
+body.dark-theme .support {
+    background: #0a0a0a !important;
+}
+
+body.dark-theme .support p {
+    color: #cccccc !important;
+}
+
+/* Footer */
+body.dark-theme footer {
+    background: #111111 !important;
+}
+
+body.dark-theme footer .logo span {
+    color: #ffffff !important;
+}
+
+body.dark-theme footer p {
+    color: #666666 !important;
+}
+
+/* Tariffs */
+body.dark-theme .tariff-card {
+    background: #1a1a1a !important;
+    border-color: #333333 !important;
+    color: #eeeeee !important;
+}
+
+body.dark-theme .tariff-card h2 {
+    color: #ffffff !important;
+}
+
+body.dark-theme .tariff-stats {
+    color: #aaaaaa !important;
+}
+
+body.dark-theme .tariff-price {
+    color: #ffffff !important;
+}
+
+body.dark-theme .tariff-price span {
+    color: #888888 !important;
+}
+
+body.dark-theme .bonus {
+    background: #333333 !important;
+    color: #eeeeee !important;
+}
+
+body.dark-theme .btn-order {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+body.dark-theme .btn-order:hover {
+    background: #dddddd !important;
+}
+
+body.dark-theme .tariff-family {
+    background: #333333 !important;
+    color: #cccccc !important;
+}
+
+body.dark-theme .tariff-per-minute {
+    color: #cccccc !important;
+}
+
+/* Constructor */
+body.dark-theme .constructor-section {
+    background: #1a1a1a !important;
+    color: #ffffff !important;
+}
+
+body.dark-theme .constructor-section p {
+    color: #999999 !important;
+}
+
+body.dark-theme .constructor-row label {
+    color: #cccccc !important;
+}
+
+body.dark-theme .constructor-bonuses label {
+    background: #2a2a2a !important;
+    color: #cccccc !important;
+}
+
+body.dark-theme .constructor-price {
+    color: #ffffff !important;
+}
+
+/* Login */
+body.dark-theme .login-box {
+    background: #1a1a1a !important;
+    color: #eeeeee !important;
+}
+
+body.dark-theme .login-box input {
+    background: #333333 !important;
+    border-color: #555555 !important;
+    color: #ffffff !important;
+}
+
+body.dark-theme .login-box input::placeholder {
+    color: #888888 !important;
+}
+
+body.dark-theme .demo-hint {
+    color: #888888 !important;
+}
+
+/* Payment */
+body.dark-theme .payment-panel {
+    background: #1a1a1a !important;
+}
+
+body.dark-theme .payment-left {
+    background: #1a1a1a !important;
+    color: #eeeeee !important;
+}
+
+body.dark-theme .payment-left .payment-item {
+    border-bottom-color: #333333 !important;
+}
+
+body.dark-theme .payment-total {
+    border-top-color: #ffffff !important;
+    color: #ffffff !important;
+}
+
+body.dark-theme .payment-right {
+    background: #0a0a0a !important;
+}
+
+body.dark-theme .payment-methods span {
+    background: rgba(255,255,255,0.1) !important;
+    color: #cccccc !important;
+}
+
+body.dark-theme .payment-methods span:hover {
+    background: rgba(255,255,255,0.2) !important;
+}
+
+body.dark-theme .payment-email {
+    background: rgba(255,255,255,0.05) !important;
+}
+
+body.dark-theme .payment-blank {
+    background: #333333 !important;
+}
+
+body.dark-theme .payment-blank input {
+    background: transparent !important;
+    color: #ffffff !important;
+}
+
+body.dark-theme .payment-blank input::placeholder {
+    color: #888888 !important;
+}
+
+body.dark-theme .btn-pay {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+body.dark-theme .btn-pay:disabled {
+    opacity: 0.3 !important;
+}
+
+/* Success */
+body.dark-theme .success-panel {
+    background: #1a1a1a !important;
+    color: #eeeeee !important;
+}
+
+body.dark-theme .success-panel p {
+    color: #aaaaaa !important;
+}
+
+body.dark-theme .success-footer {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* Profile (телефон) */
+body.dark-theme .phone-frame {
+    background: #000000 !important;
+}
+
+body.dark-theme .phone-screen {
+    background: #0a0a0a !important;
+}
+
+body.dark-theme .profile-header {
+    border-bottom-color: #222222 !important;
+}
+
+body.dark-theme .profile-user {
+    color: #888888 !important;
+}
+
+body.dark-theme .cube {
+    background: #1a1a1a !important;
+    border-color: transparent !important;
+}
+
+body.dark-theme .cube:hover {
+    background: #222222 !important;
+    border-color: #444444 !important;
+}
+
+body.dark-theme .cube-desc {
+    color: #888888 !important;
+}
+
+body.dark-theme .cube-action {
+    color: #555555 !important;
+}
+
+body.dark-theme .bottom-nav {
+    background: #0a0a0a !important;
+    border-top-color: #222222 !important;
+}
+
+body.dark-theme .bottom-nav a {
+    color: #555555 !important;
+}
+
+body.dark-theme .bottom-nav a.active {
+    color: #ffffff !important;
+}
+
+body.dark-theme #sectionPages {
+    background: #0a0a0a !important;
+}
+
+body.dark-theme .back-btn {
+    color: #ffffff !important;
+}
+
+body.dark-theme #sectionTitle {
+    color: #ffffff !important;
+}
+
+body.dark-theme .home-btn {
+    color: #ffffff !important;
+}
+
+body.dark-theme .theme-toggle-small {
+    border-color: #444444 !important;
+}
+
+body.dark-theme .theme-toggle-small:hover {
+    background: #333333 !important;
+}
+
+body.dark-theme .no-sim h3 {
+    color: #ffffff !important;
+}
+
+body.dark-theme .sim-info .phone-number {
+    color: #ffffff !important;
+}
+
+body.dark-theme .balance-row {
+    color: #aaaaaa !important;
+}
+
+/* Иконки в тёмной теме */
+body.dark-theme .icon svg {
+    stroke: #ffffff !important;
+}
+
+body.dark-theme .icon-circle {
+    background: #2a2a2a !important;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 10px 16px;
+        gap: 12px;
+    }
+
+    header .logo {
+        width: auto;
+        flex-shrink: 0;
+    }
+
+    header nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 0 8px;
+        border-top: 1px solid #e5e5e5;
+        order: 3;
+        flex: none;
+        justify-content: center;
+    }
+
+    header nav.open {
+        display: flex;
+    }
+
+    header nav a {
+        font-size: 15px;
+        padding: 6px 4px;
+        border-bottom: none !important;
+        text-align: center;
+        width: 100%;
+    }
+
+    .header-actions {
+        width: auto;
+        gap: 8px;
+        justify-content: flex-end;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .burger svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .theme-toggle {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .logo .pltrs {
+        font-size: 20px;
+    }
+
+    .logo .by {
+        font-size: 9px;
+    }
+
+    body.dark-theme header nav {
+        border-top-color: #2a2a2a;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 8px 12px;
+        gap: 8px;
+    }
+
+    .logo .pltrs {
+        font-size: 18px;
+    }
+
+    .logo .by {
+        font-size: 8px;
+    }
+
+    .theme-toggle {
+        width: 26px;
+        height: 26px;
+        font-size: 14px;
+    }
+
+    .burger svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    header nav a {
+        font-size: 14px;
+        padding: 6px 4px;
+    }
+}
+
+/* =========================================================
+   11. ДОПОЛНИТЕЛЬНЫЙ АДАПТИВ ДЛЯ ХЕДЕРА (ТЕЛЕФОНЫ)
+   ========================================================= */
+
+/* Планшеты и маленькие ноутбуки */
+@media (max-width: 992px) {
+    header {
+        padding: 12px 20px;
+    }
+    header nav {
+        gap: 16px;
+    }
+    header nav a {
+        font-size: 13px;
+    }
+}
+
+/* Телефоны (до 768px) */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 16px;
+        flex-wrap: wrap;
+    }
+
+    .logo .pltrs {
+        font-size: 20px;
+    }
+    .logo .by {
+        font-size: 9px;
+    }
+
+    /* Скрываем навигацию, показываем бургер */
+    header nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 12px 0 8px;
+        border-top: 1px solid #e5e5e5;
+        order: 3;
+    }
+
+    header nav.open {
+        display: flex;
+    }
+
+    header nav a {
+        font-size: 15px;
+        padding: 8px 4px;
+        border-bottom: none !important;
+        text-align: left;
+    }
+
+    .btn-login {
+        text-align: center;
+        padding: 8px 16px;
+        border-radius: 12px;
+    }
+
+    /* Хедер-действия (тумблер + бургер) */
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: auto;
+    }
+
+    .theme-toggle {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+
+    .burger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        padding: 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .burger svg {
+        width: 28px;
+        height: 28px;
+        stroke: #000000;
+        stroke-width: 1.5;
+    }
+
+    body.dark-theme .burger svg {
+        stroke: #ffffff;
+    }
+
+    body.dark-theme header nav {
+        border-top-color: #2a2a2a;
+    }
+}
+
+/* Очень маленькие телефоны (до 480px) */
+@media (max-width: 480px) {
+    header {
+        padding: 8px 12px;
+    }
+
+    .logo .pltrs {
+        font-size: 18px;
+    }
+    .logo .by {
+        font-size: 8px;
+    }
+
+    .theme-toggle {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .burger {
+        width: 32px;
+        height: 32px;
+    }
+
+    .burger svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    header nav a {
+        font-size: 14px;
+        padding: 6px 4px;
+    }
+
+    .btn-login {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+}
+
+/* =========================================================
+   12. КАСТОМНЫЕ ЦВЕТА ДЛЯ БОНУСОВ (принудительно)
+   ========================================================= */
+
+/* Базовые (уже были, но переопределяю с !important) */
+.bonus-telegram { background: #0088cc !important; color: #ffffff !important; }
+.bonus-whatsapp { background: #25d366 !important; color: #ffffff !important; }
+.bonus-vk { background: #4a76a8 !important; color: #ffffff !important; }
+.bonus-viber { background: #7360f2 !important; color: #ffffff !important; }
+
+/* Музыка */
+.bonus-spotify { background: #1DB954 !important; color: #ffffff !important; }
+
+/* APPLE MUSIC — градиент, как у Защиты (красный → оранжевый) */
+.bonus-apple-music { 
+    background: linear-gradient(135deg, #ff3b30, #ff6b6b) !important; 
+    color: #ffffff !important; 
+}
+
+/* Кино */
+.bonus-youtube { background: #ff0000 !important; color: #ffffff !important; }
+
+/* КИНОПОИСК — градиент чёрный → оранжевый */
+.bonus-kinopoisk { 
+    background: linear-gradient(135deg, #1a1a1a, #ff6b00) !important; 
+    color: #ffffff !important; 
+}
+
+/* Игры */
+.bonus-twitch { background: #6441A4 !important; color: #ffffff !important; }
+
+/* STEAM — тёмно-синий */
+.bonus-steam { background: #1b2838 !important; color: #ffffff !important; }
+
+/* Соцсети */
+.bonus-instagram { 
+    background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important; 
+    color: #ffffff !important; 
+}
+
+/* X — чёрный */
+.bonus-x { background: #000000 !important; color: #ffffff !important; }
+
+/* Защита и Контроль */
+.bonus-protection { background: #ff6b6b !important; color: #ffffff !important; }
+.bonus-control { background: #4a90d9 !important; color: #ffffff !important; }
+
+/* =========================================================
+   13. ПЕРЕОПРЕДЕЛЕНИЕ ДЛЯ ТЁМНОЙ ТЕМЫ (чтобы не перебивало)
+   ========================================================= */
+body.dark-theme .bonus-telegram { background: #0088cc !important; color: #ffffff !important; }
+body.dark-theme .bonus-whatsapp { background: #25d366 !important; color: #ffffff !important; }
+body.dark-theme .bonus-vk { background: #4a76a8 !important; color: #ffffff !important; }
+body.dark-theme .bonus-viber { background: #7360f2 !important; color: #ffffff !important; }
+body.dark-theme .bonus-spotify { background: #1DB954 !important; color: #ffffff !important; }
+body.dark-theme .bonus-apple-music { background: linear-gradient(135deg, #ff3b30, #ff6b6b) !important; color: #ffffff !important; }
+body.dark-theme .bonus-youtube { background: #ff0000 !important; color: #ffffff !important; }
+body.dark-theme .bonus-kinopoisk { background: linear-gradient(135deg, #1a1a1a, #ff6b00) !important; color: #ffffff !important; }
+body.dark-theme .bonus-twitch { background: #6441A4 !important; color: #ffffff !important; }
+body.dark-theme .bonus-steam { background: #1b2838 !important; color: #ffffff !important; }
+body.dark-theme .bonus-instagram { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important; color: #ffffff !important; }
+body.dark-theme .bonus-x { background: #000000 !important; color: #ffffff !important; }
+body.dark-theme .bonus-protection { background: #ff6b6b !important; color: #ffffff !important; }
+body.dark-theme .bonus-control { background: #4a90d9 !important; color: #ffffff !important; }
